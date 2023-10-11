@@ -4,12 +4,10 @@
  */
 var thirdMax = function(nums) {
     const temp = nums.sort((a, b) => {return a-b}).reverse().slice()
-    console.log('temp', temp)
     let count = 1
     let slow = 0
     for (let i = 1; i < temp.length; i++) {
         if (temp[slow] != temp[i]) {
-            console.log(slow,i,count)
             count++;
             slow = i
             if (count == 3) {
