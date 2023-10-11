@@ -3,7 +3,7 @@
  * @return {number}
  */
 var thirdMax = function(nums) {
-    nums.sort((a, b) => {return a-b}).reverse().slice()
+    nums.sort((a, b) => {return a-b}).reverse()
     let count = 1
     let slow = 0
     for (let i = 1; i < nums.length; i++) {
