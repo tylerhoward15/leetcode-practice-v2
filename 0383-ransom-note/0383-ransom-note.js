@@ -11,7 +11,6 @@ var canConstruct = function(ransomNote, magazine) {
     })
 
     return Array.from(ransomNote).every(letter => {
-        console.log(mag)
         const temp = mag.get(letter)
         if (temp > 0) {
             mag.set(letter, temp-1)
