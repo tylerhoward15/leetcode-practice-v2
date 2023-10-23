@@ -16,7 +16,6 @@ BrowserHistory.prototype.visit = function(url) {
     this.backArr.push(this.current)
     this.forwardArr = []
     this.current = url
-    // console.log(`visiting: ${this.current}`)
 };
 
 /** 
@@ -27,7 +26,6 @@ BrowserHistory.prototype.back = function(steps) {
     let count = steps
 
     while (this.backArr.length > 0 && count > 0) {
-        // console.log('backArr', this.backArr)
         this.forwardArr.push(this.current)
         this.current = this.backArr.pop()
         count--
