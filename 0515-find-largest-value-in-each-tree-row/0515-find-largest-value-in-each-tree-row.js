@@ -31,6 +31,5 @@ var largestValues = function(root) {
         ret.push(Math.max(...level))
     }
 
-    console.log(ret)
     return ret
 };
