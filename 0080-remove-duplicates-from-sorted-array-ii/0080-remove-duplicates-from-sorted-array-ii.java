@@ -8,15 +8,11 @@ class Solution {
             if (freq < 2) {
                 freqs.put(nums[i], freq+1);
             } else {
-                // if (nums[i] == nums[0]) break;
                 removeElem(nums,i);
                 ans++;
-                // i++;
             }
         }
 
-
-        System.out.println(Arrays.toString(nums));
         return nums.length - ans;
     }
 
