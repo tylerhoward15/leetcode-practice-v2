@@ -20,23 +20,23 @@ class Solution {
         q.add(root);
 
         while(!q.isEmpty()) {
+            final List<Integer> level = new ArrayList<>();
             final int size = q.size();
-            ArrayList<Integer> level = new ArrayList<>();
 
             for (int i=0; i<size; i++) {
                 final TreeNode current = q.poll();
 
                 if (current != null) {
                     level.add(current.val);
-
-                    if (current.left != null) {q.add(current.left);}
-                    if (current.right != null) {q.add(current.right);}
+                    if (current.left != null)   q.add(current.left);
+                    if (current.right != null)   q.add(current.right);
                 }
             }
             if (!level.isEmpty()) {
                 ret.add(level);
             }
         }
+
         return ret;
     }
 }
