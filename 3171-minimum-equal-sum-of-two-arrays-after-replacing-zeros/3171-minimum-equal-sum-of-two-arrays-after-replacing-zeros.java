@@ -1,23 +1,25 @@
 class Solution {
-    public long minSum(int[] nums1, int[] nums2) {
-        List<Long> list1 = new ArrayList<>();
-        for(int x : nums1) {
-            list1.add(Long.valueOf(x));
+    public long minSum(int[] nums1, int[] nums2) {        
+        int zeroes1 = 0;
+        long sum1 = 0;
+        for(int i=0; i<nums1.length; i++) {
+            final int curr = nums1[i];
+            if (curr == 0) {
+                zeroes1++;
+            }
+            sum1 += curr;
         }
-        List<Long> list2 = new ArrayList<>();
-        for(int x : nums2) {
-            list2.add(Long.valueOf(x));
-        }
-        
-        
-        int index1 = list1.size()-1;
-        int index2 = list2.size()-1;
-        
-        int zeroes1 = countZeroes(list1);
-        int zeroes2 = countZeroes(list2);
 
-        long sum1 = sumList(list1);
-        long sum2 = sumList(list2);
+
+        int zeroes2 = 0;
+        long sum2 = 0;
+        for(int i=0; i<nums2.length; i++) {
+            final int curr = nums2[i];
+            if (curr == 0) {
+                zeroes2++;
+            }
+            sum2 += curr;
+        }
     
         
         if (zeroes1 > 0 && zeroes2 > 0) {
@@ -35,24 +37,5 @@ class Solution {
             return -1;
         }
         
-    }
-    
-    public int countZeroes(List<Long> list) {
-        int counter = 0;
-        for (Long x : list) {
-            if (x==0) {
-                counter++;
-            }
-        }
-        
-        return counter;
-    }
-    
-    public long sumList(List<Long> list) {
-        long sum = 0;
-        for (Long x : list) {
-            sum+=x;
-        }
-        return sum;
     }
 }
