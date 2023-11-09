@@ -8,9 +8,7 @@ class Solution {
                 sub++;
             }
             int sizeOfSubsequence = sub-i;
-            System.out.println(sizeOfSubsequence);
             long special = special(sizeOfSubsequence);
-            System.out.println(special);
             i=sub-1;
             count += special;
         }
