@@ -1,24 +1,32 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int ans = 0;
-        Map<Integer, Integer> freqs = new HashMap<>(); // k: number, v: occurences
+        int count = 1;
+        int length = nums.length;
+        int i = 1;
 
-        for (int i=nums.length-1; i>=0; i--) {
-            final int freq = freqs.getOrDefault(nums[i], 0);
-            if (freq < 2) {
-                freqs.put(nums[i], freq+1);
+        while (i < length) {
+            count++;
+            if (nums[i] != nums[i-1]) {
+                count = 1;
+            }
+
+            if (count > 2) {
+                shift(nums, i);
+                length--;
             } else {
-                removeElem(nums,i);
-                ans++;
+                i++;
             }
         }
 
-        return nums.length - ans;
+
+        return length;
     }
 
-    public void removeElem(int[] nums, int index) {
-        for (int i=index+1; i<nums.length;i++){
-            nums[i-1] = nums[i];
+    public int[] shift(int[] arr, int index) {
+        for (int i=index+1; i<arr.length;i++) {
+            arr[i-1] = arr[i];
         }
+
+        return arr;
     }
 }
